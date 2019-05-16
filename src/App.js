@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './App.css'
+import Header from './components/Header'
 import MessageContainer from './components/MessageContainer'
 import MessageForm from './components/MessageForm'
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client'
@@ -60,6 +61,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
+        <Header/>
         <MessageContainer messages={this.state.messages}/>
         <MessageForm sendMessage={this.sendMessage}
         />
