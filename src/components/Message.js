@@ -2,13 +2,13 @@ import React from 'react'
 
 export default ({messageData}) => {
     return (
-        <li key={messageData.id}>
-            <div>
+        <li key={messageData.id} className="message">
+            <p className="sender-name">
                 {messageData.senderId}
-            </div>
-            <div>
+            </p>
+            <p className="message-text">
                 {messageData.text}
-            </div>
+            </p>
         </li>
     )
 }
