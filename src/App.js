@@ -1,12 +1,22 @@
-import React from 'react';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
+import MessageContainer from './components/MessageContainer'
 
-function App() {
-  return (
-    <div className="App">
 
-    </div>
-  );
+class App extends Component{
+  constructor() {
+    super()
+    this.state = {
+      messages: []
+    }
+  }
+  render() {
+    return (
+      <div className="App">
+        <MessageContainer messages={this.state.messages}/>
+      </div>
+    );
+  }
 }
 
 export default App;
