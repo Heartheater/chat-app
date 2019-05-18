@@ -40,7 +40,7 @@ class App extends Component{
       })
       this.state.currentUser.fetchMultipartMessages({
         roomId: auth.CHATKIT_ROOM_ID,
-        limit: 10,
+        limit: 5,
         direction: "older"    
       }).then(messages => {
         this.setState({...this.state.messages, messages})
@@ -51,6 +51,9 @@ class App extends Component{
   }
 
   sendMessage(text) {
+    if(text === " " || !text) {
+      return;
+    }
     text = String(text)
     this.state.currentUser.sendMessage({
       text,

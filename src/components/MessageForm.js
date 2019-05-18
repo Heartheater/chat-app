@@ -14,8 +14,9 @@ export default ({sendMessage}) => {
             <input
             onChange={(e) => setMessage(e.target.value)}
             value={message}
-            placeholder="Type a message and hit ENTER"
+            placeholder="Type a message... "
             type="text" 
+            className="message-input"
             />
         </form>
       )
