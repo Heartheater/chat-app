@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import styled from 'styled-components'
 import './App.css'
 import Header from './components/Header'
 import MessageContainer from './components/MessageContainer'
@@ -40,7 +41,7 @@ class App extends Component{
       })
       this.state.currentUser.fetchMultipartMessages({
         roomId: auth.CHATKIT_ROOM_ID,
-        limit: 5,
+        limit: 2,
         direction: "older"    
       }).then(messages => {
         this.setState({...this.state.messages, messages})
@@ -48,6 +49,7 @@ class App extends Component{
         console.log(`Error fetching messages: ${err}`)
       })
     })
+    .catch(err => console.log(err))
   }
 
   sendMessage(text) {
@@ -63,14 +65,19 @@ class App extends Component{
 
   render() {
     return (
-      <div className="App">
+      <AppWrapper className="App">
         <Header/>
         <MessageContainer messages={this.state.messages}/>
         <MessageForm sendMessage={this.sendMessage}
         />
-      </div>
+      </AppWrapper>
     );
   }
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+  text-align: center;
+  font-size: 17px;
+`
